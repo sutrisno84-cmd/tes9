@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ASAS (Asesmen Sumatif Akhir Semester) Tahun 2026</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #dc2626;
+            --primary-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            --primary-hover: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+            --gold-accent: #f59e0b;
+            --gold-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            --danger: #dc2626;
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        html, body {
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            color: var(--text-dark);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            position: relative;
+            background-color: #0f172a;
+        }
+
+        /* Background Gambar Sekolah (SMA Negeri 2 Tana Tidung) */
+        .bg-school {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #0f172a;
+            background-image: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.58) 0%, rgba(30, 41, 59, 0.46) 50%, rgba(15, 23, 42, 0.68) 100%),
+                url('WhatsApp Image 2026-11-17 at 09.17.42_3.jpeg'),
+                radial-gradient(circle at 20% 20%, #1e3a8a 0%, #0f172a 70%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Main Content Wrapper */
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Glassmorphic Card */
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            width: 100%;
+            max-width: 480px;
+            padding: 32px 28px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65),
+                        0 0 30px rgba(15, 23, 42, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            text-align: center;
+            animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardAppear {
+            from { opacity: 0; transform: translateY(30px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(220, 38, 38, 0.08);
+            color: #dc2626;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .badge-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #dc2626;
+            display: inline-block;
+            box-shadow: 0 0 8px #dc2626;
+        }
+
+        .logo-wrapper {
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 104px;
+        }
+
+        .logo-glow {
+            position: absolute;
+            width: 104px;
+            height: 104px;
+            background: rgba(14, 165, 233, 0.22);
+            filter: blur(26px);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .school-logo {
+            position: relative;
+            z-index: 1;
+            width: 104px;
+            max-width: 104px;
+            height: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.16));
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .school-logo:hover {
+            transform: scale(1.08) rotate(-1deg);
+        }
+
+        h1 {
+            font-size: 20.5px;
+            line-height: 1.3;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 800;
+            letter-spacing: -0.4px;
+        }
+
+        .subtitle {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.45;
+            margin-bottom: 18px;
+        }
+
+        .alert-box {
+            background: rgba(254, 242, 242, 0.9);
+            border: 1px solid rgba(252, 165, 165, 0.6);
+            border-left: 5px solid var(--danger);
+            padding: 13px 15px;
+            text-align: left;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.05);
+        }
+
+        .alert-box strong {
+            color: #b91c1c;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            font-size: 12.5px;
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: 12px;
+            margin-bottom: 0;
+            color: #991b1b;
+            line-height: 1.42;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 14px;
+            font-size: 15.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 8px 20px -4px rgba(220, 38, 38, 0.45);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -4px rgba(220, 38, 38, 0.6);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-danger {
+            background: var(--danger-gradient);
+            color: white;
+            box-shadow: 0 8px 20px -4px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px -4px rgba(220, 38, 38, 0.55);
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        input[type="text"], select.select-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            -webkit-user-select: auto;
+            user-select: auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+        }
+
+        #nisn-siswa {
+            letter-spacing: 1.5px;
+        }
+
+        #unlock-code {
+            font-size: 18px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"]:focus, select.select-input:focus {
+            outline: none;
+            border-color: #dc2626;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.15);
+        }
+
+        select.select-input {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1.1em;
+        }
+
+        /* HALAMAN SOAL (RINGAN & RESPONSIF) */
+        #exam-screen {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+            z-index: 100;
+            transform: translateZ(0);
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
+
+        /* SENSOR SENTUH SEKALI (PILIH JAWABAN) & SCROLL SAJA */
+        #iframe-sensor-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: transparent;
+            pointer-events: auto;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: pan-y;
+        }
+
+        .timer-container {
+            display: none;
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            z-index: 9999;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            align-items: center;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .timer-container span:first-child {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* TOMBOL / STATUS MODE SOAL (ANTI-BLOK TEKS) DI POJOK KIRI ATAS */
+        .mode-soal-btn {
+            display: none;
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12.5px;
+            font-weight: 700;
+            z-index: 9999;
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .mode-soal-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(5, 150, 105, 0.5);
+        }
+
+        .mode-soal-btn.aktif {
+            background: rgba(15, 23, 42, 0.88);
+            border-color: rgba(248, 113, 113, 0.45);
+            color: #fca5a5;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .violation-badge {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.35);
+            color: #b91c1c;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 26px 20px; border-radius: 20px; }
+            h1 { font-size: 18px; }
+            .school-logo { width: 92px; max-width: 92px; }
+            .timer-container { font-size: 11.5px; padding: 7px 11px; top: 10px; right: 10px; }
+            .mode-soal-btn { font-size: 11px; padding: 7px 11px; top: 10px; left: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Gambar Sekolah -->
+    <div id="bg-school" class="bg-school"></div>
+
+    <!-- Indikator Mode Soal (Anti-Blok Teks) -->
+    <button id="btn-mode-soal" class="mode-soal-btn" onclick="aktifkanModeAntiBlokSoal()">
+        <span id="mode-soal-text">📝 Selesai Isi Data → Kunci Soal (45d)</span>
+    </button>
+
+    <div id="exam-timer" class="timer-container">
+        <span>⏱️ Sisa Waktu:</span> <span id="timer-time">01:30:00</span>
+    </div>
+
+    <div id="start-screen" class="main-wrapper">
+        <div class="card">
+            <div class="badge-pill">Sistem Ujian Terpadu</div>
+            
+            <div class="logo-wrapper">
+                <div class="logo-glow"></div>
+                <img src="logo-removebg-preview.png"
+                     alt="Logo SMA Negeri 2 Tana Tidung"
+                     class="school-logo"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 220 220%22><defs><linearGradient id=%22g1%22 x1=%220%22 y1=%220%22 x2=%220%22 y2=%221%22><stop offset=%220%25%22 stop-color=%22%2338bdf8%22/><stop offset=%22100%25%22 stop-color=%22%230284c7%22/></linearGradient><linearGradient id=%22g2%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%25%22 stop-color=%22%23e0f2fe%22/><stop offset=%22100%25%22 stop-color=%22%23bae6fd%22/></linearGradient></defs><path d=%22M110 10 L202 76 L167 192 L53 192 L18 76 Z%22 fill=%22%23ffffff%22 stroke=%22url(%23g1)%22 stroke-width=%2211%22 stroke-linejoin=%22round%22/><circle cx=%22110%22 cy=%22114%22 r=%2256%22 fill=%22url(%23g2)%22 stroke=%22%2364748b%22 stroke-width=%223%22/><path id=%22arcText%22 d=%22M 42,108 A 68,68 0 0,1 178,108%22 fill=%22none%22/><text font-family=%22sans-serif%22 font-size=%2214.5%22 font-weight=%22800%22 fill=%22%230f172a%22 letter-spacing=%221.4%22><textPath href=%22%23arcText%22 startOffset=%2250%25%22 text-anchor=%22middle%22>SMA NEGERI 2</textPath></text><polygon points=%22110,64 113,72 122,72 115,77 118,85 110,80 102,85 105,77 98,72 107,72%22 fill=%22%23eab308%22 stroke=%22%23854d0e%22 stroke-width=%221%22/><path d=%22M78 112 Q110 102 142 112 L142 138 Q110 128 78 138 Z%22 fill=%22%23ffffff%22 stroke=%22%23475569%22 stroke-width=%222%22/><line x1=%22110%22 y1=%22107%22 x2=%22110%22 y2=%22133%22 stroke=%22%23475569%22 stroke-width=%222%22/><path d=%22M103 104 L117 104 L114 92 L106 92 Z%22 fill=%22%23334155%22/><path d=%22M110 92 Q103 82 110 76 Q117 82 110 92 Z%22 fill=%22%23dc2626%22/><path d=%22M84 146 L136 146 L128 162 L92 162 Z%22 fill=%22%23b91c1c%22/><path d=%22M52 166 Q110 178 168 166 L163 185 Q110 197 57 185 Z%22 fill=%22%23facc15%22 stroke=%22%23854d0e%22 stroke-width=%222%22/><text x=%22110%22 y=%22183%22 font-family=%22sans-serif%22 font-size=%2211.5%22 font-weight=%22800%22 fill=%22%230f172a%22 text-anchor=%22middle%22 letter-spacing=%220.6%22>TANA TIDUNG</text></svg>';">
+            </div>
+            
+            <h1>ASAS (Asesmen Sumatif Akhir Semester) Tahun 2026</h1>
+            <p class="subtitle">Silakan masukkan NISN dan pilih kelas Anda untuk memulai ujian. Durasi pengerjaan: 90 Menit.</p>
+
+            <div class="input-group">
+                <input type="text" id="nisn-siswa" inputmode="numeric" pattern="[0-9]*" maxlength="15" placeholder="Masukkan NISN" autocomplete="off" oninput="simpanInputAwal()" required>
+            </div>
+            <div class="input-group">
+                <select id="kelas-siswa" class="select-input" onchange="simpanInputAwal()" required>
+                    <option value="" disabled selected>-- Pilih Kelas --</option>
+                    <option value="X.1">Kelas X.1</option>
+                    <option value="X.2">Kelas X.2</option>
+                    <option value="XI Saintek">Kelas XI Saintek</option>
+                    <option value="XI Soshum">Kelas XI Soshum</option>
+                    <option value="XII Saintek">Kelas XII Saintek</option>
+                    <option value="XII Soshum">Kelas XII Soshum</option>
+                </select>
+            </div>
+            
+            <div class="alert-box">
+                <strong>⚠️ INSTRUKSI PENTING:</strong>
+                <p>Dilarang me-refresh, membelah layar (split screen), membuka aplikasi atau tombol mengambang (floating), memblok teks soal, atau keluar dari layar penuh. Toleransi buka kunci maksimal 2 kali.</p>
+            </div>
+
+            <button class="btn btn-primary" onclick="mulaiUjian()">Masuk Ujian</button>
+        </div>
+    </div>
+
+    <div id="exam-screen"></div>
+
+    <div id="lock-screen" class="main-wrapper" style="display: none;">
+        <div class="card" style="border-top: 5px solid var(--danger);">
+            <div style="font-size: 50px; margin-bottom: 10px; filter: drop-shadow(0 4px 8px rgba(220,38,38,0.3));">🔒</div>
+            <h1 id="lock-title" style="color: var(--danger);">Ujian Terkunci</h1>
+            <div id="lock-reason-badge" class="violation-badge" style="display: none;"></div>
+            <p id="lock-desc" class="subtitle" style="margin-bottom: 12px;">Sistem mendeteksi aktivitas mencurigakan (Belah Layar, Aplikasi/Tombol Mengambang, Keluar Layar Penuh, atau Refresh).</p>
+            <p id="lock-notice" style="font-weight: 700; margin-bottom: 20px; color: var(--text-dark);">Silakan panggil pengawas untuk melanjutkan.</p>
+            
+            <div id="lock-input-group" class="input-group">
+                <input type="text" id="unlock-code" placeholder="KODE AKSES GURU" autocomplete="off">
+            </div>
+            
+            <button id="lock-btn" class="btn btn-danger" onclick="bukaKunci()">Buka Kunci Akses</button>
+            <button id="lock-exit-btn" class="btn btn-primary" style="display: none; margin-top: 10px;" onclick="keluarSistem()">Keluar dari Tab Ujian</button>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // KONFIGURASI GOOGLE FORM & PRE-FILL NISN/KELAS
+        // ==========================================
+        const URL_FORM_PANCASILA = "https://forms.gle/eVFZ86cqeB38sygC6";
+        const ENTRY_ID_NISN_SISWA = "";
+        const ENTRY_ID_KELAS_SISWA = "";
+
+        const STORAGE_KEY = 'StatusUjian_VersiFinal_v2';
+        const UNLOCK_COUNT_KEY = 'JumlahBukaKunci_v2';
+        const MODE_SOAL_KEY = 'ModeAntiBlokSoal_v2';
+        const LOCK_REASON_KEY = 'AlasanKunciUjian_v2';
+
+        // KONFIGURASI DURASI UJIAN & WAKTU ISI DATA DI FORM
+        const DURASI_UJIAN_MENIT = 90;
+        const TOTAL_DETIK_UJIAN = DURASI_UJIAN_MENIT * 60;
+        const BATAS_WAKTU_BIODATA_DETIK = 45; // Otomatis aktifkan larangan blok teks setelah 45 detik
+
+        function simpanInputAwal() {
+            const nisnEl = document.getElementById('nisn-siswa');
+            const kelasEl = document.getElementById('kelas-siswa');
+
+            if (nisnEl) localStorage.setItem('NISNSiswa', nisnEl.value);
+            if (kelasEl) localStorage.setItem('KelasSiswa', kelasEl.value);
+        }
+
+        function buatUrlGoogleForm() {
+            const nisnInput = document.getElementById('nisn-siswa');
+            const kelasInput = document.getElementById('kelas-siswa');
+
+            const nisnSiswa = ((nisnInput && nisnInput.value) || localStorage.getItem('NISNSiswa') || '').trim();
+            const kelasSiswa = ((kelasInput && kelasInput.value) || localStorage.getItem('KelasSiswa') || '').trim();
+
+            try {
+                const urlObj = new URL(URL_FORM_PANCASILA);
+                const isGoogleForm = urlObj.hostname.includes('docs.google.com') || urlObj.hostname.includes('forms.gle');
+
+                if (isGoogleForm) {
+                    if (urlObj.hostname.includes('docs.google.com')) {
+                        urlObj.searchParams.set('embedded', 'true');
+                    }
+                    urlObj.searchParams.set('usp', 'pp_url');
+
+                    const entryKeys = [];
+                    for (const key of urlObj.searchParams.keys()) {
+                        if (key.startsWith('entry.')) {
+                            entryKeys.push(key);
+                        }
+                    }
+
+                    if (nisnSiswa) {
+                        if (ENTRY_ID_NISN_SISWA) {
+                            urlObj.searchParams.set(ENTRY_ID_NISN_SISWA, nisnSiswa);
+                        } else if (entryKeys.length >= 1) {
+                            urlObj.searchParams.set(entryKeys[0], nisnSiswa);
+                        }
+                    }
+
+                    if (kelasSiswa) {
+                        if (ENTRY_ID_KELAS_SISWA) {
+                            urlObj.searchParams.set(ENTRY_ID_KELAS_SISWA, kelasSiswa);
+                        } else if (entryKeys.length >= 2) {
+                            urlObj.searchParams.set(entryKeys[1], kelasSiswa);
+                        }
+                    }
+                }
+                return urlObj.toString();
+            } catch (e) {
+                return URL_FORM_PANCASILA;
+            }
+        }
+
+        let statusUjian = localStorage.getItem(STORAGE_KEY) || 'awal';
+        let modeSoalAntiBlok = localStorage.getItem(MODE_SOAL_KEY) === 'true';
+        let alasanKunciTersimpan = localStorage.getItem(LOCK_REASON_KEY) || '';
+        let sisaDetik = parseInt(localStorage.getItem('SisaWaktuUjian'));
+        if (isNaN(sisaDetik)) {
+            sisaDetik = TOTAL_DETIK_UJIAN;
+        }
+
+        let intervalTimer = null;
+        let biodataCountdownTimer = null;
+        let sisaDetikBiodata = BATAS_WAKTU_BIODATA_DETIK;
+        let pernahMasukFullscreen = false;
+        let securityWatchdogTimer = null;
+        let fokusHilangBerturut = 0;
+
+        // ==========================================
+        // SISTEM ALARM SUARA BIP - BIP (WEB AUDIO API)
+        // ==========================================
+        let alarmAudioCtx = null;
+        let beepInterval = null;
+        let activeBeepOscillators = [];
+
+        function putarSatuKetukanBip(waktuMulai, durasi) {
+            if (!alarmAudioCtx) return;
+            const osc = alarmAudioCtx.createOscillator();
+            const gain = alarmAudioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1200, waktuMulai);
+
+            gain.gain.setValueAtTime(0.001, waktuMulai);
+            gain.gain.linearRampToValueAtTime(0.95, waktuMulai + 0.01);
+            gain.gain.setValueAtTime(0.95, waktuMulai + durasi - 0.015);
+            gain.gain.exponentialRampToValueAtTime(0.001, waktuMulai + durasi);
+
+            osc.connect(gain);
+            gain.connect(alarmAudioCtx.destination);
+
+            osc.start(waktuMulai);
+            osc.stop(waktuMulai + durasi);
+
+            activeBeepOscillators.push(osc);
+            osc.onended = () => {
+                activeBeepOscillators = activeBeepOscillators.filter(item => item !== osc);
+            };
+        }
+
+        function bunyikanBipBip() {
+            if (!alarmAudioCtx) return;
+            const now = alarmAudioCtx.currentTime;
+            putarSatuKetukanBip(now, 0.12);
+            putarSatuKetukanBip(now + 0.22, 0.12);
+        }
+
+        function bunyikanAlarm() {
+            try {
+                if (!alarmAudioCtx) {
+                    alarmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (alarmAudioCtx.state === 'suspended') {
+                    alarmAudioCtx.resume();
+                }
+
+                if (beepInterval) return;
+
+                bunyikanBipBip();
+                beepInterval = setInterval(() => {
+                    if (!alarmAudioCtx) return;
+                    if (alarmAudioCtx.state === 'suspended') {
+                        alarmAudioCtx.resume();
+                    }
+                    bunyikanBipBip();
+                }, 950);
+
+            } catch (e) {
+                console.log("Gagal memutar audio alarm:", e);
+            }
+        }
+
+        function matikanAlarm() {
+            if (beepInterval) {
+                clearInterval(beepInterval);
+                beepInterval = null;
+            }
+            activeBeepOscillators.forEach(osc => {
+                try {
+                    osc.stop();
+                    osc.disconnect();
+                } catch(e) {}
+            });
+            activeBeepOscillators = [];
+        }
+
+        const perfEntries = performance.getEntriesByType("navigation");
+        let isReloaded = false;
+        
+        if (perfEntries.length > 0 && perfEntries[0].type === "reload") {
+            isReloaded = true;
+        } else if (window.performance && window.performance.navigation.type === 1) {
+            isReloaded = true;
+        }
+
+        if (statusUjian === 'berjalan' || (statusUjian === 'berjalan' && isReloaded)) {
+            let unlockCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+            if (unlockCount >= 2) {
+                statusUjian = 'terkunci_permanen';
+            } else {
+                statusUjian = 'terkunci';
+            }
+            alasanKunciTersimpan = 'Halaman Di-refresh / Dimuat Ulang';
+            localStorage.setItem(LOCK_REASON_KEY, alasanKunciTersimpan);
+            localStorage.setItem(STORAGE_KEY, statusUjian);
+        }
+
+        const startScreen = document.getElementById('start-screen');
+        const examScreen = document.getElementById('exam-screen');
+        const lockScreen = document.getElementById('lock-screen');
+        const codeInput = document.getElementById('unlock-code');
+        const timerContainer = document.getElementById('exam-timer');
+        const timerDisplay = document.getElementById('timer-time');
+        const bgSchool = document.getElementById('bg-school');
+        const btnModeSoal = document.getElementById('btn-mode-soal');
+        const modeSoalText = document.getElementById('mode-soal-text');
+
+        const lockTitle = document.getElementById('lock-title');
+        const lockReasonBadge = document.getElementById('lock-reason-badge');
+        const lockDesc = document.getElementById('lock-desc');
+        const lockNotice = document.getElementById('lock-notice');
+        const lockInputGroup = document.getElementById('lock-input-group');
+        const lockBtn = document.getElementById('lock-btn');
+        const lockExitBtn = document.getElementById('lock-exit-btn');
+
+        // ==========================================
+        // PENGATURAN TAHAP BIODATA VS MODE SOAL (ANTI-BLOK TEKS)
+        // ==========================================
+        function hentikanTimerBiodata() {
+            if (biodataCountdownTimer) {
+                clearInterval(biodataCountdownTimer);
+                biodataCountdownTimer = null;
+            }
+        }
+
+        function perbaruiTampilanTombolModeSoal() {
+            if (!btnModeSoal || !modeSoalText) return;
+
+            if (modeSoalAntiBlok) {
+                btnModeSoal.classList.add('aktif');
+                modeSoalText.textContent = "🛡️ Anti-Blok Teks Aktif";
+            } else {
+                btnModeSoal.classList.remove('aktif');
+                modeSoalText.textContent = `📝 Selesai Isi Data → Kunci Soal (${sisaDetikBiodata}d)`;
+            }
+        }
+
+        function aktifkanModeAntiBlokSoal() {
+            modeSoalAntiBlok = true;
+            localStorage.setItem(MODE_SOAL_KEY, 'true');
+            hentikanTimerBiodata();
+            perbaruiTampilanTombolModeSoal();
+            kunciPerisaiInstan();
+
+            if (document.activeElement && document.activeElement.blur) {
+                document.activeElement.blur();
+            }
+            window.focus();
+        }
+
+        function mulaiHitunganBiodata() {
+            hentikanTimerBiodata();
+            if (modeSoalAntiBlok) {
+                perbaruiTampilanTombolModeSoal();
+                return;
+            }
+
+            sisaDetikBiodata = BATAS_WAKTU_BIODATA_DETIK;
+            perbaruiTampilanTombolModeSoal();
+
+            biodataCountdownTimer = setInterval(() => {
+                if (statusUjian !== 'berjalan' || modeSoalAntiBlok) {
+                    hentikanTimerBiodata();
+                    return;
+                }
+                sisaDetikBiodata--;
+                if (sisaDetikBiodata <= 0) {
+                    aktifkanModeAntiBlokSoal();
+                } else {
+                    perbaruiTampilanTombolModeSoal();
+                }
+            }, 1000);
+        }
+
+        // ==========================================
+        // TIMER HITUNG MUNDUR (COUNTDOWN TIMER)
+        // ==========================================
+        function updateTimerDisplay() {
+            let jam = Math.floor(sisaDetik / 3600);
+            let menit = Math.floor((sisaDetik % 3600) / 60);
+            let detik = sisaDetik % 60;
+
+            timerDisplay.textContent = 
+                (jam < 10 ? "0" + jam : jam) + ":" + 
+                (menit < 10 ? "0" + menit : menit) + ":" + 
+                (detik < 10 ? "0" + detik : detik);
+        }
+
+        function jalankanTimer() {
+            if (intervalTimer) clearInterval(intervalTimer);
+            updateTimerDisplay();
+
+            intervalTimer = setInterval(() => {
+                if (sisaDetik <= 0) {
+                    hentikanTimer();
+                    statusUjian = 'terkunci_permanen';
+                    alasanKunciTersimpan = 'Waktu Ujian Telah Habis';
+                    localStorage.setItem(LOCK_REASON_KEY, alasanKunciTersimpan);
+                    localStorage.setItem(STORAGE_KEY, 'terkunci_permanen');
+                    updateUI();
+                    alert("Waktu pengerjaan ujian telah habis!");
+                    return;
+                }
+                
+                sisaDetik--;
+                localStorage.setItem('SisaWaktuUjian', sisaDetik);
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function hentikanTimer() {
+            clearInterval(intervalTimer);
+            intervalTimer = null;
+        }
+
+        function aktifkanLayarPenuh() {
+            const elem = document.documentElement;
+            const req = elem.requestFullscreen || elem.webkitRequestFullscreen || elem.msRequestFullscreen;
+            if (req) {
+                try {
+                    const p = req.call(elem);
+                    if (p && typeof p.then === 'function') {
+                        p.then(() => {
+                            pernahMasukFullscreen = true;
+                        }).catch(() => {});
+                    }
+                } catch (e) {}
+            }
+        }
+
+        function matikanLayarPenuh() {
+            pernahMasukFullscreen = false;
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(() => {});
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen().catch(() => {});
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen().catch(() => {});
+            }
+        }
+
+        function aturBackgroundSekolah(aktif) {
+            if (bgSchool) {
+                bgSchool.style.display = aktif ? 'block' : 'none';
+            }
+        }
+
+        function updateUI() {
+            startScreen.style.display = 'none';
+            examScreen.style.display = 'none';
+            lockScreen.style.display = 'none';
+            timerContainer.style.display = 'none';
+            if (btnModeSoal) btnModeSoal.style.display = 'none';
+            hentikanTimerBiodata();
+            hentikanWatchdogKeamanan();
+
+            let unlockedCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+
+            if (statusUjian === 'terkunci_permanen') {
+                hentikanTimer();
+                aturBackgroundSekolah(true);
+                lockScreen.style.display = 'flex';
+                examScreen.innerHTML = ''; 
+                bunyikanAlarm();
+
+                if (lockReasonBadge) {
+                    if (alasanKunciTersimpan) {
+                        lockReasonBadge.textContent = `Pelanggaran: ${alasanKunciTersimpan}`;
+                        lockReasonBadge.style.display = 'inline-block';
+                    } else {
+                        lockReasonBadge.style.display = 'none';
+                    }
+                }
+
+                lockTitle.textContent = "Ujian Terkunci Permanen";
+                lockDesc.textContent = "Batas maksimal pelanggaran terlampaui (2x Buka Kunci) atau waktu ujian telah habis. Ujian dihentikan secara permanen.";
+                lockNotice.style.display = 'none';
+                lockInputGroup.style.display = 'none';
+                lockBtn.style.display = 'none';
+                lockExitBtn.style.display = 'inline-flex';
+
+            } else if (statusUjian === 'terkunci') {
+                hentikanTimer();
+                aturBackgroundSekolah(true);
+                lockScreen.style.display = 'flex';
+                examScreen.innerHTML = ''; 
+                bunyikanAlarm();
+
+                if (lockReasonBadge) {
+                    if (alasanKunciTersimpan) {
+                        lockReasonBadge.textContent = `Pelanggaran: ${alasanKunciTersimpan}`;
+                        lockReasonBadge.style.display = 'inline-block';
+                    } else {
+                        lockReasonBadge.style.display = 'none';
+                    }
+                }
+
+                let sisaKesempatan = 2 - unlockedCount;
+                lockTitle.textContent = "Ujian Terkunci";
+                lockDesc.textContent = "Sistem mendeteksi aktivitas mencurigakan (Belah Layar, Aplikasi/Tombol Mengambang, Keluar Layar Penuh, atau Refresh).";
+                lockNotice.style.display = 'block';
+                lockNotice.innerHTML = `Silakan panggil pengawas untuk melanjutkan.<br><span style="color: var(--danger); font-size: 13px; font-weight: bold; display: block; margin-top: 6px;">(Kesempatan Buka Kunci Tersisa: ${sisaKesempatan} dari 2 kali)</span>`;
+                lockInputGroup.style.display = 'block';
+                lockBtn.style.display = 'inline-flex';
+                lockExitBtn.style.display = 'none';
+
+            } else if (statusUjian === 'berjalan') {
+                matikanAlarm();
+                aturBackgroundSekolah(false);
+                examScreen.style.display = 'block';
+                timerContainer.style.display = 'flex';
+                if (btnModeSoal) btnModeSoal.style.display = 'inline-flex';
+                jalankanTimer();
+                mulaiHitunganBiodata();
+                jalankanWatchdogKeamanan();
+
+                const urlFormTerisi = buatUrlGoogleForm();
+
+                // Memuat IFRAME Soal Ujian + Sensor Sentuh Sekali & Scroll Saja
+                examScreen.innerHTML = `
+                    <iframe id="exam-iframe" src="${urlFormTerisi}" allowfullscreen></iframe>
+                    <div id="iframe-sensor-shield"></div>
+                `;
+                aktifkanSensorSentuhDanScroll();
+            } else {
+                hentikanTimer();
+                matikanAlarm();
+                aturBackgroundSekolah(true);
+                startScreen.style.display = 'flex';
+                examScreen.innerHTML = ''; 
+                
+                const nisnTersimpan = localStorage.getItem('NISNSiswa');
+                const kelasTersimpan = localStorage.getItem('KelasSiswa');
+                if (nisnTersimpan !== null) document.getElementById('nisn-siswa').value = nisnTersimpan;
+                if (kelasTersimpan !== null) document.getElementById('kelas-siswa').value = kelasTersimpan;
+            }
+        }
+
+        function mulaiUjian() {
+            const nisnSiswa = document.getElementById('nisn-siswa').value.trim();
+            const kelas = document.getElementById('kelas-siswa').value;
+
+            if (nisnSiswa === "" || kelas === "") {
+                alert("Mohon lengkapi NISN dan Kelas terlebih dahulu sebelum masuk!");
+                return;
+            }
+
+            // Cegah masuk ujian jika perangkat sudah dalam kondisi Belah Layar atau Jendela Mengambang
+            const statusLayarAwal = periksaGeometriBelahLayar();
+            if (statusLayarAwal.terdeteksi) {
+                alert(`PERINGATAN KEAMANAN:\n${statusLayarAwal.alasan}.\n\nHarap matikan mode Belah Layar (Split Screen) dan tutup Aplikasi/Tombol Mengambang terlebih dahulu sebelum memulai ujian!`);
+                return;
+            }
+
+            localStorage.setItem('NISNSiswa', nisnSiswa);
+            localStorage.setItem('KelasSiswa', kelas);
+
+            if (!localStorage.getItem('SisaWaktuUjian')) {
+                sisaDetik = TOTAL_DETIK_UJIAN;
+                localStorage.setItem('SisaWaktuUjian', sisaDetik);
+            }
+
+            fokusHilangBerturut = 0;
+            statusUjian = 'berjalan';
+            localStorage.setItem(STORAGE_KEY, 'berjalan');
+            
+            aktifkanLayarPenuh();
+            updateUI();
+        }
+
+        function lockExam(alasan = 'Belah Layar / Aplikasi Mengambang / Keluar Layar') {
+            if (statusUjian === 'berjalan') {
+                let unlockedCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+                
+                if (unlockedCount >= 2) {
+                    statusUjian = 'terkunci_permanen';
+                } else {
+                    statusUjian = 'terkunci';
+                }
+
+                alasanKunciTersimpan = alasan;
+                localStorage.setItem(LOCK_REASON_KEY, alasan);
+                localStorage.setItem(STORAGE_KEY, statusUjian);
+                updateUI();
+            }
+        }
+
+        function bukaKunci() {
+            const input = codeInput.value.trim().toUpperCase();
+            if (input === "SMADA") {
+                let unlockedCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+                unlockedCount++;
+                localStorage.setItem(UNLOCK_COUNT_KEY, unlockedCount);
+
+                matikanAlarm();
+                modeSoalAntiBlok = false;
+                alasanKunciTersimpan = '';
+                pernahMasukFullscreen = false;
+                fokusHilangBerturut = 0;
+                localStorage.removeItem(MODE_SOAL_KEY);
+                localStorage.removeItem(LOCK_REASON_KEY);
+                statusUjian = 'awal';
+                localStorage.setItem(STORAGE_KEY, 'awal');
+                codeInput.value = "";
+                updateUI();
+            } else {
+                alert("Kode akses salah. Hanya pengawas yang dapat membuka kunci.");
+            }
+        }
+
+        function keluarSistem() {
+            matikanAlarm();
+            matikanLayarPenuh();
+            hentikanTimerBiodata();
+            hentikanWatchdogKeamanan();
+            
+            statusUjian = 'awal';
+            modeSoalAntiBlok = false;
+            alasanKunciTersimpan = '';
+            localStorage.setItem(STORAGE_KEY, 'awal');
+            localStorage.removeItem(MODE_SOAL_KEY);
+            localStorage.removeItem(LOCK_REASON_KEY);
+            localStorage.removeItem(UNLOCK_COUNT_KEY);
+            localStorage.removeItem('SisaWaktuUjian');
+            localStorage.removeItem('NISNSiswa');
+            localStorage.removeItem('KelasSiswa');
+            sisaDetik = TOTAL_DETIK_UJIAN;
+            
+            window.close();
+            window.open('', '_self', '');
+            window.close();
+            
+            setTimeout(() => {
+                window.location.href = "about:blank";
+            }, 300);
+        }
+
+        // =========================================================
+        // SENSOR SENTUH SEKALI (PILIH JAWABAN) & LARANGAN BLOK TEKS
+        // =========================================================
+        let relockTimer = null;
+        let reclaimFocusTimer = null;
+        let modeScrollAktif = false;
+
+        function kunciPerisaiInstan() {
+            const shield = document.getElementById('iframe-sensor-shield');
+            if (shield) {
+                shield.style.pointerEvents = 'auto';
+            }
+        }
+
+        function potongSentuhanLamaIframe() {
+            kunciPerisaiInstan();
+
+            if (modeSoalAntiBlok) {
+                const jedaPotong = modeScrollAktif ? 340 : 190;
+                modeScrollAktif = false;
+
+                clearTimeout(reclaimFocusTimer);
+                reclaimFocusTimer = setTimeout(() => {
+                    if (statusUjian === 'berjalan' && modeSoalAntiBlok && document.hasFocus()) {
+                        window.focus();
+                    }
+                }, jedaPotong);
+            }
+        }
+
+        function aktifkanSensorSentuhDanScroll() {
+            const shield = document.getElementById('iframe-sensor-shield');
+            if (!shield) return;
+
+            let startX = 0;
+            let startY = 0;
+            let touchStartTime = 0;
+            let isSwiping = false;
+
+            function izinkanAksesSingkat(durasiMs, isScroll) {
+                modeScrollAktif = isScroll;
+                shield.style.pointerEvents = 'none';
+                clearTimeout(relockTimer);
+                relockTimer = setTimeout(() => {
+                    kunciPerisaiInstan();
+                    modeScrollAktif = false;
+                }, durasiMs);
+            }
+
+            // 1. GESTUR SENTUHAN LAYAR (HP / TABLET)
+            shield.addEventListener('touchstart', function(e) {
+                if (e.touches.length >= 3 && statusUjian === 'berjalan') {
+                    lockExam('Gestur Multi-Jari / Belah Layar Terdeteksi');
+                    return;
+                }
+                if (e.touches.length > 1) return;
+
+                const touch = e.touches[0];
+                startX = touch.clientX;
+                startY = touch.clientY;
+                touchStartTime = Date.now();
+                isSwiping = false;
+            }, { passive: true });
+
+            shield.addEventListener('touchmove', function(e) {
+                if (e.touches.length >= 3 && statusUjian === 'berjalan') {
+                    lockExam('Gestur Multi-Jari / Belah Layar Terdeteksi');
+                    return;
+                }
+                if (e.touches.length > 1) return;
+                const touch = e.touches[0];
+                const diffX = Math.abs(touch.clientX - startX);
+                const diffY = Math.abs(touch.clientY - startY);
+
+                if (diffX > 6 || diffY > 6) {
+                    isSwiping = true;
+                    izinkanAksesSingkat(modeSoalAntiBlok ? 500 : 600, true);
+                }
+            }, { passive: true });
+
+            shield.addEventListener('touchend', function() {
+                const durasiSentuh = Date.now() - touchStartTime;
+                const batasKetukMs = modeSoalAntiBlok ? 180 : 260;
+
+                if (isSwiping) {
+                    izinkanAksesSingkat(modeSoalAntiBlok ? 500 : 600, true);
+                } else if (durasiSentuh < batasKetukMs) {
+                    izinkanAksesSingkat(modeSoalAntiBlok ? 400 : 500, false);
+                }
+            }, { passive: true });
+
+            // Deteksi jika sentuhan dipotong oleh tombol/menu mengambang sistem
+            shield.addEventListener('touchcancel', function() {
+                setTimeout(() => {
+                    if (statusUjian === 'berjalan' && !document.hasFocus()) {
+                        lockExam('Interaksi Tombol / Menu Mengambang Terdeteksi');
+                    }
+                }, 150);
+            }, { passive: true });
+
+            // 2. GESTUR MOUSE / TRACKPAD (LAPTOP / PC)
+            let mouseDownTime = 0;
+            let mouseStartX = 0;
+            let mouseStartY = 0;
+            let isDragging = false;
+
+            shield.addEventListener('mousedown', function(e) {
+                if (e.button !== 0) return;
+                mouseStartX = e.clientX;
+                mouseStartY = e.clientY;
+                mouseDownTime = Date.now();
+                isDragging = false;
+            });
+
+            shield.addEventListener('mousemove', function(e) {
+                if (e.buttons === 1) {
+                    if (Math.abs(e.clientX - mouseStartX) > 6 || Math.abs(e.clientY - mouseStartY) > 6) {
+                        isDragging = true;
+                    }
+                }
+            });
+
+            shield.addEventListener('mouseup', function(e) {
+                if (e.button !== 0) return;
+                const durasiKlik = Date.now() - mouseDownTime;
+                const batasKlikMs = modeSoalAntiBlok ? 180 : 250;
+
+                if (!isDragging && durasiKlik < batasKlikMs) {
+                    izinkanAksesSingkat(modeSoalAntiBlok ? 400 : 500, false);
+                }
+            });
+
+            shield.addEventListener('wheel', function() {
+                izinkanAksesSingkat(modeSoalAntiBlok ? 500 : 600, true);
+            }, { passive: true });
+
+            shield.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+        }
+
+        // ============================================================
+        // KEAMANAN BELAH LAYAR (SPLIT SCREEN) & TOMBOL/APLIKASI MENGAMBANG
+        // ============================================================
+        function periksaGeometriBelahLayar() {
+            const screenW = screen.width || window.innerWidth;
+            const screenH = screen.height || window.innerHeight;
+            const availW = screen.availWidth || screenW;
+            const availH = screen.availHeight || screenH;
+
+            const innerW = window.innerWidth;
+            const innerH = window.innerHeight;
+            const outerW = window.outerWidth || innerW;
+            const outerH = window.outerHeight || innerH;
+
+            const isFull = Boolean(
+                document.fullscreenElement ||
+                document.webkitFullscreenElement ||
+                document.msFullscreenElement
+            );
+
+            // 1. Belah Layar Horizontal (Kiri - Kanan / Slide Over iPad)
+            const rasioLebar = innerW / screenW;
+            const rasioOuterLebar = outerW / availW;
+            if (rasioLebar < 0.80 || (outerW > 0 && rasioOuterLebar < 0.82)) {
+                return {
+                    terdeteksi: true,
+                    alasan: 'Belah Layar Horizontal (Split Screen Kiri-Kanan) Terdeteksi'
+                };
+            }
+
+            // 2. Belah Layar Vertikal (Atas - Bawah)
+            // Catatan: Keyboard HP tidak mengecilkan outerHeight; Split Screen mengecilkan innerHeight & outerHeight
+            const rasioTinggi = innerH / screenH;
+            const rasioOuterTinggi = outerH / availH;
+            if (rasioTinggi < 0.72 || (outerH > 0 && rasioOuterTinggi < 0.78)) {
+                return {
+                    terdeteksi: true,
+                    alasan: 'Belah Layar Vertikal (Split Screen Atas-Bawah) Terdeteksi'
+                };
+            }
+
+            // 3. Jendela Mengambang (Floating Window / Pop-up View / Freeform)
+            if (!isFull && outerW > 0 && outerH > 0) {
+                const posX = typeof window.screenX === 'number' ? window.screenX : (window.screenLeft || 0);
+                const posY = typeof window.screenY === 'number' ? window.screenY : (window.screenTop || 0);
+                if (posX > 35 || posY > 90) {
+                    return {
+                        terdeteksi: true,
+                        alasan: 'Jendela Aplikasi Mengambang (Floating Window) Terdeteksi'
+                    };
+                }
+            }
+
+            // 4. Visual Viewport menyempit secara horizontal (sidebar / floating panel / split overlay)
+            if (window.visualViewport) {
+                const vvLebar = window.visualViewport.width / screenW;
+                if (vvLebar < 0.82) {
+                    return {
+                        terdeteksi: true,
+                        alasan: 'Panel / Aplikasi Mengambang Samping Terdeteksi'
+                    };
+                }
+            }
+
+            return { terdeteksi: false, alasan: '' };
+        }
+
+        let resizeDebounceTimer = null;
+        function jadwalkanCekBelahLayar() {
+            if (statusUjian !== 'berjalan') return;
+            clearTimeout(resizeDebounceTimer);
+            // Jeda 250ms agar rotasi layar HP normal tidak dianggap belah layar
+            resizeDebounceTimer = setTimeout(() => {
+                if (statusUjian !== 'berjalan') return;
+                const hasil = periksaGeometriBelahLayar();
+                if (hasil.terdeteksi) {
+                    lockExam(hasil.alasan);
+                }
+            }, 250);
+        }
+
+        function jalankanWatchdogKeamanan() {
+            hentikanWatchdogKeamanan();
+            fokusHilangBerturut = 0;
+
+            securityWatchdogTimer = setInterval(() => {
+                if (statusUjian !== 'berjalan') {
+                    hentikanWatchdogKeamanan();
+                    return;
+                }
+
+                // A. Cek visibilitas tab / layar
+                if (document.hidden || document.visibilityState !== 'visible') {
+                    lockExam('Berpindah Tab atau Menyembunyikan Layar Ujian');
+                    return;
+                }
+
+                // B. Cek fokus sistem (menangkap tombol mengambang, chat bubble, kalkulator mengambang, notifikasi)
+                // document.hasFocus() tetap TRUE saat siswa mengetik/memilih di dalam iframe Google Form,
+                // dan langsung menjadi FALSE saat menyentuh tombol/aplikasi mengambang di luar browser.
+                if (!document.hasFocus()) {
+                    fokusHilangBerturut++;
+                    if (fokusHilangBerturut >= 2) {
+                        lockExam('Aplikasi / Tombol Mengambang atau Overlay Terdeteksi');
+                        return;
+                    }
+                } else {
+                    fokusHilangBerturut = 0;
+                }
+
+                // C. Cek geometri Belah Layar & Jendela Mengambang secara berkala
+                const hasilLayar = periksaGeometriBelahLayar();
+                if (hasilLayar.terdeteksi) {
+                    lockExam(hasilLayar.alasan);
+                    return;
+                }
+            }, 350);
+        }
+
+        function hentikanWatchdogKeamanan() {
+            if (securityWatchdogTimer) {
+                clearInterval(securityWatchdogTimer);
+                securityWatchdogTimer = null;
+            }
+            clearTimeout(resizeDebounceTimer);
+        }
+
+        // 1. DETEKSI KELUAR DARI FULLSCREEN
+        document.addEventListener("fullscreenchange", checkFullscreen);
+        document.addEventListener("webkitfullscreenchange", checkFullscreen);
+        document.addEventListener("msfullscreenchange", checkFullscreen);
+
+        function checkFullscreen() {
+            const isFull = document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            if (isFull) {
+                pernahMasukFullscreen = true;
+                jadwalkanCekBelahLayar();
+            } else if (statusUjian === 'berjalan') {
+                lockExam('Keluar dari Mode Layar Penuh (Fullscreen)');
+            }
+        }
+
+        // 2. DETEKSI PERUBAHAN UKURAN & ORIENTASI LAYAR (SPLIT SCREEN / FLOATING)
+        window.addEventListener("resize", jadwalkanCekBelahLayar);
+        window.addEventListener("orientationchange", jadwalkanCekBelahLayar);
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener("resize", jadwalkanCekBelahLayar);
+        }
+
+        // 3. DETEKSI INTERAKSI IFRAME & TOMBOL/APLIKASI MENGAMBANG (FOKUS HILANG)
+        window.addEventListener("blur", () => {
+            if (statusUjian === 'berjalan') {
+                const iframe = document.getElementById("exam-iframe");
+                if (document.activeElement === iframe) {
+                    potongSentuhanLamaIframe();
+                }
+
+                // Verifikasi apakah fokus benar-benar pindah ke aplikasi/tombol mengambang di luar browser
+                setTimeout(() => {
+                    if (statusUjian === 'berjalan' && !document.hasFocus()) {
+                        lockExam('Aplikasi / Tombol Mengambang Terdeteksi');
+                    }
+                }, 220);
+            }
+        });
+
+        // 4. DETEKSI PINDAH TAB / VISIBILITAS & PICTURE-IN-PICTURE
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "hidden") {
+                lockExam('Berpindah Tab / Membuka Aplikasi Lain');
+            }
+        });
+
+        document.addEventListener("enterpictureinpicture", () => {
+            if (statusUjian === 'berjalan') {
+                lockExam('Mode Picture-in-Picture (Video Mengambang) Terdeteksi');
+            }
+        });
+
+        // 5. DETEKSI REFRESH ATAU MENUTUP HALAMAN
+        window.addEventListener("beforeunload", function () {
+            if (statusUjian === 'berjalan') {
+                let unlockedCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+                let statusLock = (unlockedCount >= 2) ? 'terkunci_permanen' : 'terkunci';
+                localStorage.setItem(LOCK_REASON_KEY, 'Mencoba Refresh / Menutup Halaman');
+                localStorage.setItem(STORAGE_KEY, statusLock);
+            }
+        });
+
+        window.addEventListener("pagehide", function () {
+            if (statusUjian === 'berjalan') {
+                let unlockedCount = parseInt(localStorage.getItem(UNLOCK_COUNT_KEY)) || 0;
+                let statusLock = (unlockedCount >= 2) ? 'terkunci_permanen' : 'terkunci';
+                localStorage.setItem(LOCK_REASON_KEY, 'Mencoba Refresh / Menutup Halaman');
+                localStorage.setItem(STORAGE_KEY, statusLock);
+            }
+        });
+
+        // 6. BLOKIR KLIK KANAN, SELEKSI TEKS & PINTASAN KEYBOARD
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('selectstart', function(e) {
+            if (modeSoalAntiBlok) e.preventDefault();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F5' || (e.ctrlKey && (e.key === 'r' || e.key === 'R'))) {
+                e.preventDefault();
+                lockExam('Menekan Tombol Refresh (F5 / Ctrl+R)');
+            }
+            if (e.altKey && e.key === 'Tab') {
+                e.preventDefault();
+                lockExam('Berpindah Jendela (Alt+Tab)');
+            }
+            if (modeSoalAntiBlok && e.ctrlKey && ['c', 'C', 'a', 'A', 'x', 'X', 'u', 'U'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        updateUI();
+    </script>
+</body>
+</html>
